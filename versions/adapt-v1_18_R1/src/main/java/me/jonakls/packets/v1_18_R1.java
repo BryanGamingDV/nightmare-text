@@ -9,13 +9,15 @@ import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
 import net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket;
 import net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket;
 import net.minecraft.network.protocol.game.ClientboundSetTitlesAnimationPacket;
-import org.bukkit.craftbukkit.v1_17_R1.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_18_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
-public class v1_17_R1 implements PacketModel {
+public class v1_18_R1 implements PacketModel {
 
     @Override
     public void sendTitle(Player player, TitleModel titleModel) {
+
+
         ClientboundSetTitleTextPacket titlePacket = new ClientboundSetTitleTextPacket(
                 IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + titleModel.getTitle() + "\"}")
         );
@@ -45,6 +47,6 @@ public class v1_17_R1 implements PacketModel {
 
     @Override
     public void sendPacket(Player player, Object packet) {
-        ((CraftPlayer) player).getHandle().b.sendPacket((Packet<?>) packet);
+        ((CraftPlayer) player).getHandle().b.a((Packet<?>) packet);
     }
 }

@@ -5,11 +5,12 @@ import me.jonakls.bukkit.version.ServerVersion;
 
 public class NightmareText {
 
-    private PacketModel packetModel;
+    private final PacketModel packetModel;
 
-    public void install() {
+    public NightmareText() {
         ServerVersion version = new ServerVersion();
-        packetModel = version.getModelVersion();
+        this.packetModel = version.getModelVersion();
+
     }
 
     public PacketModel getPacketModel() {
