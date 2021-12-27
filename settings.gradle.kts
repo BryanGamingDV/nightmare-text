@@ -12,8 +12,7 @@ arrayOf(
     "adapt-v1_14_R1",
     "adapt-v1_15_R1",
     "adapt-v1_16_R1",
-    "adapt-v1_17_R1",
-    "adapt-v1_18_R1"
+    "adapt-v1_17_R1"
 ).forEach {
     include(":versions:$it")
 }

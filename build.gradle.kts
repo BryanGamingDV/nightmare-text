@@ -6,20 +6,44 @@ plugins {
 
 group = "me.jonakls"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_11
 
 subprojects {
-    apply(plugin="java")
-    apply(plugin="com.github.johnrengelman.shadow")
+    apply(plugin = "java-library")
+    apply(plugin = "com.github.johnrengelman.shadow")
 
     repositories {
         mavenCentral()
         maven("https://repo.codemc.io/repository/nms/")
+    }
+
+    tasks {
+        java {
+            toolchain {
+                languageVersion.set(
+                    JavaLanguageVersion.of(
+                        project.property("java").toString()
+                    )
+                )
+            }
+        }
     }
 }
 
 publishing {
     publications.create<MavenPublication>("maven") {
         from(components["java"])
+    }
+}
+
+tasks {
+    shadowJar {
+        archiveBaseName.set("nightmare-text-root")
+        destinationDirectory.set(file("$rootDir/bin/"))
+        minimize()
+
+    }
+
+    clean {
+        delete("${rootDir}/bin/")
     }
 }
