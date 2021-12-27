@@ -1,6 +1,6 @@
 rootProject.name= "nightmare-text"
 
-include(":bukkit", ":core", ":api")
+include(":bukkit", ":api")
 
 arrayOf(
     "adapt-v1_8_R3",
