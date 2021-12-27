@@ -1,4 +1,4 @@
-package me.jonkls.packets;
+package me.jonakls.packets;
 
 import me.jonakls.api.PacketModel;
 import me.jonakls.api.components.ActionBarModel;
